@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id='school_management_root'
+        name='Student'
+    />
+    <menuitem
+        id='student_details'
+        name='Student Details'
+        parent='school_management_root'
+        action='student_action'
+    />
+      <menuitem
+        id='teacher_details'
+        name='Teacher Details'
+        parent='school_management_root'
+        action='teacher_action'
+    />
+      <menuitem
+        id='stream_details'
+        name='Stream'
+        parent='school_management_root'
+        action='stream_action'
+    />
+      <menuitem
+        id='maths'
+        name='Maths'
+        parent='stream_details'
+        action='stream_maths'
+    />
+      <menuitem
+        id='commerce'
+        name='Commerce'
+        parent='stream_details'
+        action='stream_commerce'
+    />
+     <menuitem
+        id='arts'
+        name='Arts'
+        parent='stream_details'
+        action='stream_arts'
+    />
+     
+     
+</odoo>

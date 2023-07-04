@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_student_form" model="ir.ui.view">
+        <field name="name">student.form</field>
+        <field name="model">student.table</field>
+        <field name="arch" type="xml">
+
+            <form>
+                <sheet>
+                    <h1>
+                        <field name="enrollment_number" />
+                    </h1>
+
+                    <group>
+                        <group>
+                            <field name="student_name" />
+                            <field name="standard" />
+                            <field name="stream" placeholder="Select"
+                                attrs="{'invisible':[('standard', 'not in', [11,12])]}" />
+                            <field name="division" placeholder="Select"
+                                attrs="{'invisible':[('standard', 'in', [11,12])]}" />
+                            <field name="class_teacher" />
+                            <field name="roll_number" />
+
+                            <field name="dob" />
+                            <field name="age" />
+                        </group>
+                        <group>
+                            <field name="phone_number" />
+                            <field name="address" />
+                            <field name="city" />
+                            <field name="state" />
+                            <field name="countryz" />
+                            <field name="zip_code" />
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Parents Details">
+                            <group>
+                                <field name="parent_name" />
+                                <field name="relation_with_student" placeholder="Select" />
+                                <field name="parent_contact" />
+                                <field name="parent_email" />
+                            </group>
+                        </page>
+
+                        <page string="Previous School Details">
+                            <group>
+                                <field name="previous_school_name" />
+                                <field name="previous_enrollment_number" />
+                                <field name="previous_admission_date" />
+                                <field name="previous_leaving_date" />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="message_ids" options="{'post refresh': 'recipients'}" />
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_student_tree" model="ir.ui.view">
+        <field name="name">student.tree</field>
+        <field name="model">student.table</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="student_name" />
+                <field name="standard" />
+                <field name="stream" />
+                <field name="division" />
+                <field name="roll_number" />
+                <field name="enrollment_number" />
+                <field name="address" />
+                <field name="phone_number" />
+                <field name="dob" />
+                <field name="age" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="student_10_search" model="ir.ui.view">
+        <field name="name">student.search</field>
+        <field name="model">student.table</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter string='10 student' name="standard_10" domain="[('standard', '=', 10)]" />
+                <group string='group month'>
+                    <filter string='Months' name="group_by_month "
+                        context="{'group_by':'birth_month'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+</odoo>

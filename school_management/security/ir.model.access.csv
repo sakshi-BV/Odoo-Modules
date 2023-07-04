@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_management,school.management,model_student_table,,1,1,1,1
+access_school_management1,school.management1,model_teacher_table,,1,1,1,1
+
