@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id='employee_root'
+        name='Employee'
+    />
+    <menuitem
+        id='employee_details'
+        name='Details'
+        parent='employee_root'
+        action='employee_action'
+    />
+      <menuitem
+        id='department_details'
+        name='Departments'
+        parent='employee_root'
+        action='department_action'
+    />
+   
+    
+</odoo>

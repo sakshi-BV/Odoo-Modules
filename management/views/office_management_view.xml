@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="name">Employee.form</field>
+        <field name="model">employee.table</field>
+        <field name="arch" type="xml">
+            <header>
+
+                <button name="action_confirm" string="Confirm" type="object" />
+
+            </header>
+            <form>
+                <sheet>
+
+                    <h1>Employees Details Form</h1>
+
+                    <group>
+                        <group>
+                            <field name="employee_name" placeholder="Enter Employee Name" />
+                            <field name="dob" />
+                            <field name="age" placeholder="Enter Employee Age" />
+                            <field name="gender" default="other" />
+                            <field name="bio" attrs="{'readonly': [('age', '&lt;', 20)]}"
+                                placeholder="read only" />
+                            <field name="countryz" />
+                            <field name="state" attrs="{'invisible': [('countryz', '=', False)]}" />
+                        </group>
+                        <group>
+
+                            <field name="mobile_no" />
+                            <field name="employee_status" />
+                            <field name="hour_rate" />
+                            <field name="hour" />
+                            <field name="salary" />
+                            <field name="salary1" />
+                            
+                        </group>
+                        <group>
+                            <field name="counts"/>
+                            <field name="email" />
+                            <field name="department"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- <record id="sequence_real_estate_property" model="ir.sequence">
+        <field name="name">Real Estate Property Sequence</field>
+        <field name="code">real.estate.property.sequence</field>
+        <field name="prefix">PROP/</field>
+        <field name="padding">4</field>
+    </record> -->
+
+    <record id="view_employee_search" model="ir.ui.view">
+        <field name="name">employee.search</field>
+        <field name="model">employee.table</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_name" />
+                <field name="age" />
+            </search>
+        </field>
+    </record>
+
+    <record id="view_employee_tree" model="ir.ui.view">
+        <field name="name">employee.tree</field>
+        <field name="model">employee.table</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_name" />
+                <field name="dob" />
+                <field name="age" />
+                <field name="gender" />
+                <field name="bio" />
+                <field name="mobile_no" />
+                <field name="employee_status" />
+                <field name="email" />
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_employee_graph" model="ir.ui.view">
+        <field name="name">employee.graph</field>
+        <field name="model">employee.table</field>
+        <field name="arch" type="xml">
+            <graph>
+                <field name="employee_name" />
+                <field name="dob" />
+                <field name="age" />
+                <field name="gender" />
+                <field name="bio" />
+                <field name="countryz" />
+                <field name="state" />
+                <field name="mobile_no" />
+            </graph>
+        </field>
+    </record>
+</odoo>
