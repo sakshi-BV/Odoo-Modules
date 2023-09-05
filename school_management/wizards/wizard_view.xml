@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- <menuitem
+        id='wizard_menu'
+        name='Sessions'
+        parent='school_management_root'
+    /> -->
+    <record id="wizard_form_view" model="ir.ui.view">
+        <field name="name">student.wizard</field>
+        <field name="model">student.wizard</field>
+        <field name="arch" type="xml">
+            <form string='Removed Students'>
+                <group>
+                    <field name="remove_std" />
+                    
+                </group>
+                <footer>
+                    <button name="unlink" confirm="You want to delete the record?" string="Delete" type="object" class="btn-primary "/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+               
+            </form>
+        </field>
+    </record>
+
+</odoo>

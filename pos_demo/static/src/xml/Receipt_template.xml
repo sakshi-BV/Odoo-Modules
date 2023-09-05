@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="receiptScreenView" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('pos-receipt-contact')]" position="inside">
+            <div>
+                <label for="phone_number">Mobile Number:</label>
+                <span id = "phone_number"><t t-out="receipt.phone_number"/></span>
+                </div>
+                <div>
+                <label for="note">Note </label>
+                <span id = "note"><t t-out="receipt.partner.note"/></span>
+                
+        </div>
+    </xpath>
+    
+</t>
+</templates>

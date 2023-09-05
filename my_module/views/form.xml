@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   
+        <record id="module_tree" model="ir.ui.view">
+            <field name="name">module.tree</field>
+            <field name="model">data.table</field>
+            <field name="arch" type="xml">
+                <tree >
+                    <field name="name" placeholder="write your name"/>
+                    <field name="description" placeholder="give description"/>
+                    <field name="date_discription"/>
+                    <field name="expected_price" placeholder="Enter Expected Price"/>
+                    <field name="selling_price" placeholder="Enter Selling Price"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="module_graph" model="ir.ui.view">
+            <field name="name">module.graph</field>
+            <field name="model">data.table</field>
+            <field name="arch" type="xml">
+                <graph >
+                    <field name="name" placeholder="write your name"/>
+                    <field name="description" placeholder="give description"/>
+                    <field name="date_discription"/>
+                    <field name="expected_price" placeholder="Enter Expected Price"/>
+                    <field name="selling_price" placeholder="Enter Selling Price"/>
+                </graph>
+            </field>
+        </record>
+
+         <record id="module_kanban" model="ir.ui.view">
+            <field name="name">module.kanban</field>
+            <field name="model">data.table</field>
+            <field name="arch" type="xml">
+             <template>
+            <kanban>
+                <field name="name" placeholder="write your name"/>
+                <field name="description" placeholder="give description"/>
+                <field name="date_discription"/>
+                
+                <templates>
+                    <t t-name="kanban-box">
+                    
+                        <div>
+                            <t t-esc="record.name.value"/>
+                            <t t-esc="record.description.value"/>
+                            <t t-esc="record.date_discription.value"/>
+                           
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </template>
+            </field>
+        </record>
+
+        <record id="module_form" model="ir.ui.view">
+            <field name="name">module.form</field>
+            <field name="model">data.table</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" placeholder="write your name"/>
+                            <field name="description" placeholder="give description"/>
+                            <field name="date_discription"/>
+                            <field name="expected_price" placeholder="Enter Expected Price"/>
+                            <field name="selling_price" placeholder="Enter Selling Price"/>
+                        
+                        </group>
+                        <notebook>
+                            <page string = "Requirements">
+                                <group>
+                                <field name="garden"/>
+                                <field name="garage"/>
+                                </group>
+                            </page>
+
+                            <page string = "About seller">
+                                <group>
+                                <field name="seller_name"/>
+                                <field name="seller_address"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="module_action" model="ir.actions.act_window">
+            <field name="name">sakshi</field>
+            <field name="res_model">data.table</field>
+            <field name="view_mode">tree,form,graph,kanban</field>
+        </record>
+
+        <menuitem id="module_menu_root" name="Module"/>
+        
+            <menuitem id="module_menu_sales" name="Sales" parent="module_menu_root" action="module_action"/>
+            <menuitem id="sales_item1" name="Item1" parent="module_menu_sales" action="module_action"/>
+            <menuitem id="sales_item2" name="Item2" parent="module_menu_sales" action="module_action"/>
+            <menuitem id="sales_item3" name="item3" parent="module_menu_sales" action="module_action"/>
+
+</odoo>
+

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_student_form" model="ir.ui.view">
+        <field name="name">student.form</field>
+        <field name="model">student.table</field>
+        <field name="arch" type="xml">
+
+            <form>
+                <header>
+                    <button name="open_url" string="open" type="object" class="btn-primary" />
+                    <button name="button_action" string="Teacher Form" type="object" />
+                    <button name="student_email_action" string="Send Email" type="object" />
+                    <button name="wiz_action" string="Form" type="object"
+                        context="{'default_remove_std' : context.get('params')['id']}" />
+                    <button name="student_query_action" string="Query" type="object" />
+                </header>
+
+                <sheet>
+                    <h1>
+                        <field name="enrollment_number" />
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="student_name" />
+                            <field name="standard" />
+                            <field name="stream" placeholder="Select"
+                                attrs="{'invisible':[('standard', 'not in', [11,12])]}" />
+                            <field name="division" placeholder="Select"
+                                attrs="{'invisible':[('standard', 'in', [11,12])]}" />
+
+                            <field name="class_teacher" widget='badge'/>
+                            <field name="roll_number" widget="CopyClipboardChar" />
+                            <field name="dob" />
+                            <field name="age" />
+                            <field name='display' />
+                        </group>
+
+                        <group>
+                            <field name='user_admin' widget = 'many2one_avatar_user'/>
+                            <field name="teacher_list"
+                                options="{'no_create': True ,'no_create_edit': True}" />
+
+                            <field name="fee_status" widget='radio' />
+                            <field name="description" widget="char_emojis" />
+                            <span class="o_form_label o_td_label" name="address_name">
+                                <b>Address</b>
+                            </span>
+                            <div class="o_address_format">
+                                <field name="street" placeholder="Street..."
+                                    class="o_address_street" />
+                                <field name="street1" placeholder="Street 2..."
+                                    class="o_address_street" />
+                                <field name="city" placeholder="City" class="o_address_city" />
+                                <field name="state" class="o_address_state" placeholder="State" />
+                                <field name="zip_code" placeholder="ZIP" class="o_address_zip" />
+                                <div name="partner_address_country"
+                                    class="d-flex justify-content-between">
+                                    <field name="countryz" placeholder="Country"
+                                        class="o_address_country"
+                                        options="{'no_create': True ,'no_create_edit': True}" />
+                                </div>
+                            </div>
+                        </group>
+
+                        <group>
+                            <span class="o_form_label o_td_label" name="address_name">
+                                <b>Phone Number</b>
+                            </span>
+                            <div class="o_address_format">
+                                <field name="country_code" placeholder="code" class="o_address_city" />
+                                <field name="phone_number" class="o_address_state"
+                                    placeholder="number" widget='phone' />
+                            </div>
+                            <field name="age_progress" widget='progressbar' />
+                            <field name="active_std" widget='boolean_toggle' />
+
+
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Partner Id">
+                            <field name="partner_id" />
+                        </page>
+
+                        <page string="Parents Details">
+                            <group>
+                                <field name="parent_name" />
+                                <field name="relation_with_student" placeholder="Select" />
+                                <field name="parent_contact" />
+                                <field name="parent_email" widget="email" />
+                                <field name="aadhar_card" />
+                            </group>
+                        </page>
+
+                        <page string="Previous School Details">
+                            <group>
+                                <field name="previous_school_name" />
+                                <field name="previous_enrollment_number" />
+                                <field name="previous_admission_date" />
+                                <field name="previous_leaving_date" />
+                            </group>
+                        </page>
+
+                    </notebook>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="message_ids" options="{'post refresh': 'recipients'}" />
+                </div>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="view_student_tree" model="ir.ui.view">
+        <field name="name">student.tree</field>
+        <field name="model">student.table</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="student_name" />
+                <field name="standard" />
+                <field name="stream" />
+                <field name="division" />
+                <field name="enrollment_number" />
+                <field name="dob" optional="hide" />
+                <field name="age" />
+                <field name="fee_status" />
+                <field name="country_code" optional='hide' />
+                <field name="countryz" optional="hide" />
+                <field name="age_progress" widget='progressbar' />
+                <field name="active_std" widget='boolean_button' />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_student_graph" model="ir.ui.view">
+        <field name="name">student.graph</field>
+        <field name="model">student.table</field>
+        <field name="arch" type="xml">
+            <graph>
+                <field name="standard" type='row' />
+                <field name="age" type="measure" />
+            </graph>
+        </field>
+    </record>
+
+    <!-- <record id="view_student_form_kanban" model="ir.ui.view">
+        <field name="name">student.form.kanban</field>
+        <field name="model">student.table</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                <field name="student_name" />
+                <field name="standard" />
+            </sheet>
+            </form>
+        </field>
+    </record> -->
+
+    <record id="view_student_kanban" model="ir.ui.view">
+        <field name="name">student.kanban</field>
+        <field name="model">student.table</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" sample="1" default_group_by='fee_status'>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_record_top mb16">
+                                <div class="o_kanban_record_headings">
+                                    <strong>
+                                        <h4>
+                                            <field name="student_name" />
+                                        </h4>
+                                    </strong>
+                                </div>
+                                <strong>
+                                    <field name="phone_number" />
+                                </strong>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <div>
+                                        <field name="dob" />
+                                    </div>
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <div>
+                                        <field name="age" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="student_10_search" model="ir.ui.view">
+        <field name="name">student.search</field>
+        <field name="model">student.table</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter string='10 student' name="standard_10" domain="[('standard', '=', 10)]" />
+                <group string='group month'>
+                    <filter string='Months' name="group_by_month "
+                        context="{'group_by':'birth_month'}" />
+                </group>
+                <group string='group class'>
+                    <filter string='Classes' name="group_by_class"
+                        context="{'group_by':'standard'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+</odoo>

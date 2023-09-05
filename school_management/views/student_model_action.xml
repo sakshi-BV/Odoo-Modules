@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="student_action" model="ir.actions.act_window">
+        <field name="name">Student Details </field>
+        <field name="res_model">student.table</field>
+        <field name="view_mode">form,tree,kanban,graph</field>
+        <field name="context">{"search_default_standard_10":1}</field>
+        <field name="view_id" ref="view_student_tree" />
+    </record>
+
+    <record id="teacher_action" model="ir.actions.act_window">
+        <field name="name">Teacher Details </field>
+        <field name="res_model">teacher.table</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_teacher_tree" />
+
+    </record>
+
+    <record id="stream_maths" model="ir.actions.act_window">
+        <field name="name">Maths </field>
+        <field name="res_model">student.table</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_student_tree" />
+        <field name="domain">[('stream', '=', 'maths')]</field>
+        <field name="target">new</field>
+    </record>
+    <record id="stream_commerce" model="ir.actions.act_window">
+        <field name="name">Commerce</field>
+        <field name="res_model">student.table</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_student_tree" />
+        <field name="domain">[('stream', '=', 'commerce')]</field>
+        <field name="target">new</field>
+    </record>
+    <record id="stream_arts" model="ir.actions.act_window">
+        <field name="name">Arts</field>
+        <field name="res_model">student.table</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_student_tree" />
+        <field name="domain">[('stream', '=', 'arts')]</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="fee_action_done" model="ir.actions.server">
+        <field name="name">Mark As Done</field>
+        <field name="model_id" ref='model_student_table' />
+        <field name="binding_model_id" ref="model_student_table" />
+        <field name="state">code</field>
+        <field name="code">
+            for record in records:
+                if record.fee_status == 'unpaid':
+                    record.actiondone()
+
+        </field>
+    </record>
+
+</odoo>

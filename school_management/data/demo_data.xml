@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="student.table" id="demo_record_1">
+            <field name="student_name">Student 1</field>
+            <field name="phone_number">1234567890</field>
+            <field name="dob">2000-03-11</field>
+
+        </record>
+
+        <record model="student.table" id="demo_record_2">
+            <field name="student_name">Student 2</field>
+            <field name="phone_number">1234567800</field>
+            <field name="dob">2000-03-11</field>
+        </record>
+
+        <record model="student.table" id="demo_record_3">
+            <field name="student_name">Student 3</field>
+            <field name="phone_number">1234567000</field>
+            <field name="dob">2000-03-11</field>
+        </record>
+    </data>
+</odoo>

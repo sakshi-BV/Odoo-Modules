@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_my_module_model,My Module Name,my_module.model_data_table,,1,1,1,1
+

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sales_demo_search" model="ir.ui.view">
+        <field name="name">sales.demo.name</field>
+        <field name="model">sales.demo</field>
+        <field name="arch" type="xml">
+            <search>
+                <group string='States'>
+                    <filter string='State' name="state "
+                        context="{'group_by':'state'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_sales_order_tree" model="ir.ui.view">
+        <field name="name">sales.demo.form</field>
+        <field name="model">sales.demo</field>
+        <field name="arch" type="xml">
+
+            <tree string="TREE">
+                <field name="name" />
+                <field name="val1" />
+                <field name="val2" /> 
+                <field name="result" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_sales_order_form" model="ir.ui.view">
+        <field name="name">sales.demo.form</field>
+        <field name="model">sales.demo</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <group>
+                        <field name="student_image" widget="image" class="oe_left oe_avatar"
+                        options="{'no_auto_resize': True}" style="height:128px;width:128px"
+                        nolabel="1" />
+
+    
+                    </group>
+                    <!-- Basic Fields -->
+                    <group>   <group>
+                        <field name="name" />
+                        <field name="date_order" />
+                        <field name="amount_total" />
+                        <field name="partner_id" />
+                        <field name="state" />
+                        <!-- Add more fields as needed -->
+                    </group>
+                    <group>
+                        <field name = 'val1'/>
+                        <field name = 'val2'/>
+                        <field name = 'result'/>
+                    </group>
+                    <label for='student'/>
+                    <field name='student' options="{'no_create': True}" widget="many2many_default"/>
+                     </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Pivot View -->
+    <record id="view_sales_order_pivot" model="ir.ui.view">
+        <field name="name">sales.demo.pivot</field>
+        <field name="model">sales.demo</field>
+        <field name="arch" type="xml">
+            <pivot string="NEW">
+                <field name="partner_id" type="row"/>
+                <field name="date_order" type="col"/> 
+                <field name="amount_total" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id='view_search_sales' model='ir.ui.view'>
+        <field name="name">sales.search.view</field>
+        <field name="model">sales.demo</field>
+        <field name="arch" type='xml'>
+            <search>
+                <filter string = 'valss' name='vals_view' domain="[('val1','&lt;',10)]"/>
+                <group>
+                    <filter string='name' name='name_group_by' context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action to Open the Pivot View -->
+    <record id="action_sales_order" model="ir.actions.act_window">
+        <field name="name">Sales Demo</field>
+        <field name="res_model">sales.demo</field>
+        <field name="view_mode">tree,form,pivot</field>
+        <!-- <field name="view_id" ref="view_teacher_tree" /> -->
+        <field name="search_view_id" ref="view_search_sales"/>
+        <field name="context">{'default_name':'sakshi','search_default_vals_view':1}</field>
+        
+    </record>
+
+    
+    <!-- Add the Action to the Menu -->
+    <menuitem id="menu_sales_order" name="Sales Demo"
+        action="action_sales_order" sequence = '0'/>
+
+
+
+</odoo>
+    

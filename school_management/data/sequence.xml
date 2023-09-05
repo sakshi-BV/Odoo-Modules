@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="ir.sequence" id="school_sequence">
+            <field name="name">Student Sequence</field>
+            <field name="code">student.sequence</field>
+            <field name="prefix">Rollno-</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="PartnerDetailsEditTemplate" t-inherit="point_of_sale.PartnerDetailsEdit" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('partner-details-left')]//div[1]" position="inside">
+            <div class="partner-detail">
+                <span class="label">Note</span>
+                <input class="detail" name="note"
+                       t-model="changes.note"
+                       t-on-change="captureChange"
+                       placeholder="...." />
+            </div>
+    </xpath>
+</t>
+
+
+<t t-name="Partner_customer_list" t-inherit="point_of_sale.PartnerListScreen" t-inherit-mode="extension" owl="1">
+    <xpath expr="//table[hasclass('partner-list')]//tr//th[2]" position="after">
+            <th>Note</th>
+</xpath>
+</t>
+<t t-name="Partner_customer_line" t-inherit="point_of_sale.PartnerLine" t-inherit-mode="extension" owl="1">
+    <xpath expr="//td[hasclass('partner-line-email')]" position="before">
+            <td><t t-out="props.partner.note or 'N/A'"></t></td>
+</xpath>
+</t>
+
+</templates>

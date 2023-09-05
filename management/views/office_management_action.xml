@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="employee_action" model="ir.actions.act_window">
+        <field name="name">Employee management</field>
+        <field name="res_model">employee.table</field>
+        <field name="view_mode">tree,form,graph</field>
+        <field name="search_view_id" ref="view_employee_search"/>
+        <field name="view_id" ref="view_employee_tree"/>
+    </record>
+
+    <record id="department_action" model="ir.actions.act_window">
+        <field name="name">department management</field>
+        <field name="res_model">department.table</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_department_tree"/>
+    </record>
+</odoo>
