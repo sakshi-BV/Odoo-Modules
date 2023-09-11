@@ -17,12 +17,12 @@
     'data': [
             
             'security/ir.model.access.csv',
-            "views/assets.xml",
             "views/student_model_view.xml",
             "views/teacher_model_view.xml",
             "views/student_model_action.xml",
             "wizards/wizard_view.xml",
             "views/student_model_menu.xml",
+            "views/assets.xml",
             'reports/student_details_template.xml',
             "data/mail_template.xml",
             "views/student_setting_view.xml",

@@ -6,8 +6,8 @@
                 <span class="label">Note</span>
                 <input class="detail" name="note"
                        t-model="changes.note"
-                       t-on-change="captureChange"
-                       placeholder="...." />
+                      
+                       placeholder="Write something...." />
             </div>
     </xpath>
 </t>

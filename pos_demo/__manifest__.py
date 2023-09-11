@@ -9,8 +9,8 @@
     'depends':[ "point_of_sale","base"],
     'data': [
             'security/ir.model.access.csv',
-            'views/PosExtend.xml',
-            'views/PartnerNote_view.xml'
+            'views/PosOrderExtend.xml',
+            'views/PartnerNote_view.xml',
     
     ],
     'assets':{

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ButtonComponentAdd" owl="1">
+      <div class= "control-button" >
+        <i class="fa fa-phone"></i>
+        <span>Phone</span>
+      </div>
+
+     <div class= "control-button" t-on-click="() => this.trigger('ondelete')">
+        <i class="fa fa-trash" ></i>
+        <span>Clear</span>
+      </div>
+    </t>
+</templates>

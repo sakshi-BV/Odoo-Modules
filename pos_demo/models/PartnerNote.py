@@ -10,8 +10,8 @@ class PosExtend(models.Model):
         alldata = self.env['res.partner']
         for rec in self:
             count = alldata.search_count([['note','=',rec.note],['id','!=',rec.id]])
-        if count>0:
-            raise ValidationError("Already in Exist")
+            if count>0:
+                raise ValidationError("Already Exist")
     
 
 class PosSession(models.Model):

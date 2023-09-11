@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_location_name_view_form" model="ir.ui.view">
+        <field name="name">pos.location.model.view</field>
+        <field name="model">pos.location.model</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="location_name" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="location_action" model="ir.actions.act_window">
+        <field name="name">Pos Location </field>
+        <field name="res_model">pos.location.model</field>
+        <field name="view_mode">form</field>
+
+    </record>
+
+    <menuitem 
+    id="pos_location_root"
+    name='Location'
+    action = 'location_action'/>
+
+  
+</odoo>

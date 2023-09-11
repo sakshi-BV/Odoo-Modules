@@ -5,23 +5,8 @@ odoo.define('pos_demo.PosMobileButton', function (require) {
     // const ErrorPopup = require('point_of_sale.ErrorPopup');
     // const { useErrorHandlers, useAsyncLockedMethod } = require('point_of_sale.custom_hooks');
 
-    const PosMobileButton = (ProductScreen) => class PosMobileButton extends ProductScreen {
+    const PosMobileButton = (ProductScreen) => class extends ProductScreen {
 
-        setup() {
-            super.setup();
-        }
-        async onClick() {
-            const allOrders = this.env.pos.get_order()
-            console.log(allOrders)
-            const { confirmed, payload: inputPhone } = await this.showPopup('PosMobileButtonPopup', {
-                startingValue: allOrders.get_phone()
-            });
-            if (confirmed) {
-                allOrders.set_phone(inputPhone);
-
-            }
-
-        }
         // @override For Enforce Customer Selection Before Order Proceeds:
         _onClickPay() {
             if (this.env.pos.get_order().partner == null) {
@@ -32,7 +17,6 @@ odoo.define('pos_demo.PosMobileButton', function (require) {
                 });
             }
             else {
-
                 super._onClickPay()
             }
 
