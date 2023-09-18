@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- Extending the form view for pos.order to include the location field -->
     <record id="inherit_view_form_pos_location" model="ir.ui.view">
         <field name="name">inherit.view.form.pos.location</field>
         <field name="model">pos.order</field>
         <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
         <field name="arch" type="xml">
+            <!-- Adding the 'location' field after the 'phone_number' field -->
             <xpath expr="//field[@name='phone_number']" position="after">
                 <field name="location" />
             </xpath>
         </field>
     </record>
 
+    <!-- Extending the tree view for pos.order to include the location field -->
     <record id="inherit_view_tree_pos_location" model="ir.ui.view">
         <field name="name">inherit.view.tree.pos.location</field>
         <field name="model">pos.order</field>
         <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
         <field name="arch" type="xml">
+            <!-- Adding the 'location' field after the 'phone_number' field -->
             <xpath expr="//field[@name='phone_number']" position="after">
                 <field name="location" optional='show'/>
             </xpath>

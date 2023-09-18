@@ -10,9 +10,8 @@
                 <header>
                     <button name="open_url" string="open" type="object" class="btn-primary" />
                     <button name="button_action" string="Teacher Form" type="object" />
-                    <button name="student_email_action" string="Send Email" type="object" />
-                    <button name="wiz_action" string="Form" type="object"
-                        context="{'default_remove_std' : context.get('params')['id']}" />
+                    <button name="student_email_action" string="Send Email" type="object" context="{'button' : True}" />
+                    <button name="wiz_action" string="Form" type="object"/>
                     <button name="student_query_action" string="Query" type="object" />
                 </header>
 

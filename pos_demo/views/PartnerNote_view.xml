@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- Record defining an inheritance of the form view for res.partner model -->
     <record id="inherit_form_view_partner" model="ir.ui.view">
         <field name="name">inherit.form.view.partner</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
+
+            <!-- Adding the 'note' field after the 'vat' field in the form view -->
             <xpath expr="//field[@name='vat']" position="after">
                 <field name="note" />
             </xpath>
+
         </field>
     </record>
-    </odoo>
+
+</odoo>

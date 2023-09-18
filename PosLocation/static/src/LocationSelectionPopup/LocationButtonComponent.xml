@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
 
+    <!-- LocationButtonComponent Template Definition -->
     <t t-name="LocationButtonComponent" owl="1">
 
-     <div class= "control-button">
-        <i class="fa fa-map-marker" />
-        
-        <span t-if="selected_location"><t t-out="selected_location"/></span>
-        <span t-else="">Location</span>
-      </div>
+        <!-- Control button for selecting location -->
+        <div class= "control-button">
+            <i class="fa fa-map-marker" />
+            
+            <!-- Display selected location if available, otherwise display 'Location' -->
+            <span t-if="selected_location">
+                <t t-out="selected_location"/>
+            </span>
+            <span t-else="">Location</span>
+        </div>
     </t>
 </templates>

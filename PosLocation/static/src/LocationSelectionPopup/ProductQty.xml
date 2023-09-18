@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
+
+    <!-- Product_Qty Template Definition -->
     <t t-name="Product_Qty" t-inherit="point_of_sale.ProductItem" t-inherit-mode="extension" owl="1">
+
+        <!-- Adding quantity information before the product image -->
         <xpath expr="//div[hasclass('product-img')]" position="before">
             <div class= "qty">
-            <span> <t t-out = "props.product.qty_available"/></span>
-        </div>
-    </xpath>
-</t></templates>
+                <span> <t t-out = "props.product.qty_available"/></span>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

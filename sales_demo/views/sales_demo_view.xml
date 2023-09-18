@@ -49,6 +49,7 @@
                         <field name="amount_total" />
                         <field name="partner_id" />
                         <field name="state" />
+                        <field name="abs_name"/>
                         <!-- Add more fields as needed -->
                     </group>
                     <group>

@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- Record for extending the form view of 'pos.order' model -->
     <record id="inherit_view_form_pos_phone" model="ir.ui.view">
         <field name="name">inherit.view.form.pos.phone</field>
         <field name="model">pos.order</field>
         <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
         <field name="arch" type="xml">
+
+            <!-- Adding the 'phone_number' field after the 'fiscal_position_id' field in the form view -->
             <xpath expr="//field[@name='fiscal_position_id']" position="after">
                 <field name="phone_number" />
             </xpath>
+
         </field>
     </record>
 
-    
+    <!-- Record for extending the tree view of 'pos.order' model -->
     <record id="inherit_view_tree_pos" model="ir.ui.view">
         <field name="name">inherit.view.tree.pos</field>
         <field name="model">pos.order</field>
         <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
         <field name="arch" type="xml">
+
+            <!-- Adding the 'phone_number' field after the 'date_order' field in the tree view -->
             <xpath expr="//field[@name='date_order']" position="after">
                 <field name="phone_number" optional='show'/>
             </xpath>
+
         </field>
     </record>
 
- 
- </odoo>
+</odoo>

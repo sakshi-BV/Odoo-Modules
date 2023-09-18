@@ -188,7 +188,7 @@ class School(models.Model):
         return action
 
     def wiz_action(self):
-        print(self._context)
+        # print(self._context)
         return {
             "type": "ir.actions.act_window",
             "view_mode": "form",
@@ -226,6 +226,7 @@ class School(models.Model):
 
 
     def student_email_action(self):
+        print(self._context.get('button'),'================================')
         template_id = self.env.ref('school_management.email_template_edi_student').id
         self.env['mail.template'].browse(template_id).send_mail(self.id, force_send= True)
 

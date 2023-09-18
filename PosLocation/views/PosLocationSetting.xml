@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- Extending the res.config.settings view for Point of Sale settings -->
     <record id="res_config_settings_view_form" model="ir.ui.view">
         <field name="name">res.config.settings.view</field>
         <field name="model">res.config.settings</field>
@@ -8,6 +9,7 @@
         <field name="arch" type="xml">
             <xpath expr="//div[@id='pos_interface_section']" position="after">
 
+                <!-- Adding a section for Pos Location settings -->
                 <h2>Pos Location</h2>
                 <div class="row mt16 o_settings_container" id="pos_payment_section">
                     <div class="col-12 col-lg-6 o_setting_box" id="payment_methods_new">
@@ -17,6 +19,7 @@
                                 location available
                             </div>
                             <div class="content-group mt16">
+                                <!-- Adding a field for configuring locations -->
                                 <field name="location_config" colspan="4" nolabel="1"
                                     widget="many2many_tags" options="{'no_create': True}" />
                             </div>
@@ -29,4 +32,3 @@
         </field>
     </record>
 </odoo>
-    
